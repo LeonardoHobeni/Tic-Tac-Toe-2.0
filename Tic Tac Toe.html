@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Tic Tac Toe site</title>
+        <link rel="stylesheet" href="Tic Tac Toe.css">
+        <script src="Tic Tac Toe.js"></script>
+    </head>
+    
+    <body onload="buildBoard('boardItems',
+        [
+            [
+                {id: 'button1', row:'1'},
+                {id: 'button2', row:'1'},
+                {id: 'button3', row:'1'}
+            ],
+            [
+                {id: 'button4', row:'2'},
+                {id: 'button5', row:'2'},
+                {id: 'button6', row:'2'}
+            ],
+            [
+                {id: 'button7', row:'3'},
+                {id: 'button8', row:'3'},
+                {id: 'button9', row:'3'}
+            ]
+        ]
+    )">
+        <p class="gameHeading"><img src="tic tac toe2.jpg" width="100">Tic Tac Toe</p>
+        
+        <p><label id="playerLabel" for="playerTurn"></label>
+        </p>
+        <label id="gameLabel"></label>
+        <div class="gameBoardItems" id="boardItems" style="text-align: center; margin-top: -34px;">
+        </div>
+        <p>
+            <button class="menuButton" onclick="reStartGame();">Restart Game</button>
+        </p>
+    </body>
+</html>
