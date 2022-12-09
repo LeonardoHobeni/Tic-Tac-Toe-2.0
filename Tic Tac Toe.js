@@ -168,14 +168,18 @@ function buildBoard(containerID, dataSchema)
 
 function reStartGame()
 {
-    for(let pos=1; pos<=9; pos+=1)
+    var response= confirm("Click OK to clear board and restart game.");
+    if(response)
     {
-        (document.getElementById("button"+pos)).value="_";
-        (document.getElementById("button"+pos)).textContent="_";
+        for(let pos=1; pos<=9; pos+=1)
+        {
+            (document.getElementById("button"+pos)).value="_";
+            (document.getElementById("button"+pos)).textContent="_";
+        }
+        playerOCount=playerXCount=5;
+        (document.getElementById('playerLabel')).textContent="";
+        (document.getElementById("gameLabel")).textContent="";
     }
-    playerOCount=playerXCount=5;
-    (document.getElementById('playerLabel')).textContent="";
-    (document.getElementById("gameLabel")).textContent="";
 }
 
 function makeElement(description)
