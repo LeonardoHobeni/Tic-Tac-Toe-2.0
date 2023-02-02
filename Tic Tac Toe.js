@@ -6,9 +6,9 @@ function winner()
     {
         for(let j=i; j<=(i+2); j+=1)
         {
-            if((document.getElementById("button"+j)).value=='X')
+            if((document.querySelector("#button"+j)).value=='X')
                 countX+=1;
-            if((document.getElementById("button"+j)).value=='O')
+            if((document.querySelector("#button"+j)).value=='O')
                 countO+=1;
         }
         if(countO==3 || countX==3)
@@ -26,9 +26,9 @@ function winner()
     {
         for(let j=i; j<=(i+6); j+=3)
         {
-            if((document.getElementById("button"+j)).value=='X')
+            if((document.querySelector("#button"+j)).value=='X')
                 countX+=1;
-            if((document.getElementById("button"+j)).value=='O')
+            if((document.querySelector("#button"+j)).value=='O')
                 countO+=1;
         }
         if(countO==3 || countX==3)
@@ -44,9 +44,9 @@ function winner()
     {
         for(let i=1; i<=9; i+=4)
         {
-            if((document.getElementById("button"+i)).value=='X')
+            if((document.querySelector("#button"+i)).value=='X')
                 countX+=1;
-            if((document.getElementById("button"+i)).value=='O')
+            if((document.querySelector("#button"+i)).value=='O')
                 countO+=1;
         }
         if(countO==3 || countX==3)
@@ -62,9 +62,9 @@ function winner()
     {
         for(let i=3; i<=7; i+=2)
         {
-            if((document.getElementById("button"+i)).value=='X')
+            if((document.querySelector("#button"+i)).value=='X')
                 countX+=1;
-            if((document.getElementById("button"+i)).value=='O')
+            if((document.querySelector("#button"+i)).value=='O')
                 countO+=1;
         }
         if(countO==3 || countX==3)
@@ -85,7 +85,7 @@ function whoWon()
      {
          for(let j=i; j<=(i+2); j+=1)
          {
-             if((document.getElementById("button"+j)).value=='O')
+             if((document.querySelector("#button"+j)).value=='O')
                  countO+=1;
          }
          if(countO==3)
@@ -103,7 +103,7 @@ function whoWon()
      {
          for(let j=i; j<=(i+6); j+=3)
          {
-             if((document.getElementById("button"+j)).value=='O')
+             if((document.querySelector("#button"+j)).value=='O')
                  countO+=1;
          }
           if(countO==3)
@@ -119,7 +119,7 @@ function whoWon()
      {
         for(let i=1; i<=9; i+=4)
          {
-             if((document.getElementById("button"+i)).value=='O')
+             if((document.querySelector("#button"+i)).value=='O')
                  countO+=1;
          }
          if(countO==3)
@@ -135,7 +135,7 @@ function whoWon()
      {
          for(let i=3; i<=7; i+=2)
          {
-             if((document.getElementById("button"+i)).value=='O')
+             if((document.querySelector("#button"+i)).value=='O')
                  countO+=1;
          }
          if(countO==3)
@@ -158,7 +158,7 @@ function isDraw()
 
 function buildBoard(containerID, dataSchema)
 {
-    var container= document.getElementById(containerID);
+    var container= document.querySelector('#'+containerID);
     schema= dataSchema;
     for(let i=0; i<3; i+=1)
     {
@@ -173,12 +173,12 @@ function reStartGame()
     {
         for(let pos=1; pos<=9; pos+=1)
         {
-            (document.getElementById("button"+pos)).value="_";
-            (document.getElementById("button"+pos)).textContent="_";
+            (document.querySelector("#button"+pos)).value="_";
+            (document.querySelector("#button"+pos)).textContent="_";
         }
         playerOCount=playerXCount=5;
-        (document.getElementById('playerLabel')).textContent="";
-        (document.getElementById("gameLabel")).textContent="";
+        (document.querySelector('#playerLabel')).textContent="";
+        (document.querySelector("#gameLabel")).textContent="";
     }
 }
 
@@ -192,11 +192,11 @@ function makeElement(description)
         let id= item.id;
         buttonElement.setAttribute("onclick", "placeSymbol(id);");
         if(item.row=="1")
-            buttonElement.className= "firstRow";
+            buttonElement.classList.add("firstRow");
         else if(item.row="2")
-            buttonElement.className= "secondRow";
+            buttonElement.classList.add("secondRow");
         else
-            buttonElement.className= "thirdRow";
+            buttonElement.classList.add("thirdRow");
         buttonElement.value= "_";
         buttonElement.textContent="_";
         contPar.appendChild(buttonElement);
@@ -206,7 +206,7 @@ function makeElement(description)
 
 function NotEmpty(id)
 {
-    let btn= document.getElementById(id);
+    let btn= document.querySelector('#'+id);
     if(btn.value == "_")
         return false;
     return true;
@@ -223,12 +223,12 @@ function gameOn()
 {
     if(winner())
     {
-        (document.getElementById("gameLabel")).textContent= "Player "+whoWon()+" won.";
+        (document.querySelector("#gameLabel")).textContent= "Player "+whoWon()+" won.";
         return false;
     }
     else if(isDraw())
     {
-        (document.getElementById("gameLabel")).textContent= "It is a tie.";
+        (document.querySelector("#gameLabel")).textContent= "It is a tie.";
         return false;
     }
     return true;
@@ -236,7 +236,7 @@ function gameOn()
 
 function placeSymbol(id)
 {
-    let elementButton= document.getElementById(id);
+    let elementButton= document.querySelector('#'+id);
     if(gameOn())
     {
 
@@ -249,18 +249,18 @@ function placeSymbol(id)
             else
                 playerOCount-=1;
             if(gameOn())
-                (document.getElementById('playerLabel')).textContent="Player "+playerTurn()+" turn:";
+                (document.querySelector('#playerLabel')).textContent="Player "+playerTurn()+" turn:";
             else
             {
-                (document.getElementById('playerLabel')).textContent= "Game Over!!!";
+                (document.querySelector('#playerLabel')).textContent= "Game Over!!!";
             }
         }
         else
-            (document.getElementById('playerLabel')).textContent="Space not empty";
+            (document.querySelector('#playerLabel')).textContent="Space not empty";
     }
     else
     {
-        (document.getElementById('playerLabel')).textContent= "Game Over!!!";
+        (document.querySelector('#playerLabel')).textContent= "Game Over!!!";
     }
 }
 
