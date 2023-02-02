@@ -19,9 +19,7 @@ body
     font-size: 2em;
     background-color: #0B0C10;
     color:#66FCF1;
-    border: 4px;
-    border-style:groove;
-    border-color: #45A29E;
+    border: 4px groove #45A29E;
     font-weight: 600;
 }
 
