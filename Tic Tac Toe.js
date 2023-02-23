@@ -1,4 +1,5 @@
-var gameBoard= [], playerXCount =5, playerOCount=5, gameName;
+let gameBoard= [], playerXCount =5, playerOCount=5, gameName;
+document.querySelector(".menuButton").addEventListener('click', reStartGame);
 function winner()
 {   var countX=0, countO=0;
     //checking rows
